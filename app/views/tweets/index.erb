@@ -1,0 +1,12 @@
+
+<%#binding.pry%>
+<%if Helpers.is_logged_in?(session)%>
+<h1>Welcome, <%=Helpers.current_user(session).username%></h1>
+<%@tweets.each do |tweet|%>
+<li><a href="/tweets/<%= tweet.id %>"><%= tweet.content %></a></li>
+<%end%>
+<%else%>
+<%redirect :'/login'%>
+<%end%>
+<li><a href="/tweets/new">New Tweet</a></li>
+<li><a href="/logout">Log Out</a></li>

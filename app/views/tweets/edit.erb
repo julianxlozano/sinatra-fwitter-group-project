@@ -1,0 +1,17 @@
+<% if Helpers.is_logged_in?(session) %>
+<%#binding.pry%>
+  <form action="/tweets/<%=@tweet.id%>" method="post">
+
+    Content:
+    <input type="text" name="content" value="<%=@tweet.content%>"><br>
+    Edit Your Tweet:
+
+    <input type="submit" name="submit" id="submit">
+
+    
+
+  </form>
+
+  <% else %>
+  <% redirect '/login' %>
+  <% end %>
